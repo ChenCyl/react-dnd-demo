@@ -1,4 +1,4 @@
-import React, { memo } from 'react'
+import React from 'react'
 import Dustbin from './Dustbin'
 import Box from './Box'
 
@@ -15,10 +15,10 @@ export interface IDragItem {
   type: TYPE
 }
 
-export const Container: React.FC = memo(function Container() {
+export const Container: React.FC = () => {
   return (
     <div>
-      <div style={{display: "flex"}}>
+      <div style={{display: "flex", flexWrap: 'wrap'}}>
         <Dustbin accept={[TYPE.GLASS]} />
         <Dustbin accept={[TYPE.FOOD]} />
         <Dustbin accept={[TYPE.PAPER, TYPE.GLASS, TYPE.__NATIVE_URL__]} />
@@ -31,6 +31,6 @@ export const Container: React.FC = memo(function Container() {
       </div>
     </div>
   )
-})
+}
 
 export default Container

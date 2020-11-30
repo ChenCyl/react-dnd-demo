@@ -1,8 +1,8 @@
-import React, { memo } from 'react'
+import React from 'react'
 import Dustbin from './Dustbin'
 import Box from './Box'
 
-export const Container: React.FC = memo(function Container() {
+export const Container: React.FC = () => {
   return (
     <div>
       <div>
@@ -15,6 +15,6 @@ export const Container: React.FC = memo(function Container() {
       </div>
     </div>
   )
-})
+}
 
 export default Container

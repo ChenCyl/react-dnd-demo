@@ -11,16 +11,33 @@ const Dustbin: FC = () => {
 
   const [{ isOver, canDrop }, drop] = useDrop({
     accept: 'Box',
-    drop: (item: IDragItem) => {
-      console.log('... [drop] drop')
-      // alert(`You dropped ${item.name} into Dustbin!`)
+    canDrop(item, monitor) { // 非常重要的 offset 转折点
+      // 行进过程中的 offset 可以通过 canDrop 和 hover 拿到
+      console.log('... [drop] canDrop')
+      console.log('getInitialClientOffset', monitor.getInitialClientOffset());
+      console.log('getClientOffset', monitor.getClientOffset());
+      console.log('getInitialSourceClientOffset', monitor.getInitialSourceClientOffset())
+      console.log('getSourceClientOffset', monitor.getSourceClientOffset())
+      console.log('getDifferenceFromInitialOffset', monitor.getDifferenceFromInitialOffset());
+      return true
     },
     hover(item, monitor) {
       console.log('... [drop] hover')
+      // offset 与 canDrop 一样
+      // console.log('getInitialClientOffset', monitor.getInitialClientOffset());
+      // console.log('getClientOffset', monitor.getClientOffset());
+      // console.log('getInitialSourceClientOffset', monitor.getInitialSourceClientOffset())
+      // console.log('getSourceClientOffset', monitor.getSourceClientOffset())
+      // console.log('getDifferenceFromInitialOffset', monitor.getDifferenceFromInitialOffset());
     },
-    canDrop(item, monitor) {
-      console.log('... [drop] canDrop')
-      return true
+    drop: (item: IDragItem, monitor: DropTargetMonitor) => {
+      // monitor.didDrop 会阻挡 offset 的传播
+      console.log('... [drop] drop')
+      console.log('getInitialClientOffset', monitor.getInitialClientOffset());
+      console.log('getClientOffset', monitor.getClientOffset());
+      console.log('getInitialSourceClientOffset', monitor.getInitialSourceClientOffset())
+      console.log('getSourceClientOffset', monitor.getSourceClientOffset())
+      console.log('getDifferenceFromInitialOffset', monitor.getDifferenceFromInitialOffset());
     },
     collect: (monitor: DropTargetMonitor) => ({
       isOver: monitor.isOver(),

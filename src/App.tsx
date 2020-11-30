@@ -3,7 +3,8 @@ import { DndProvider } from 'react-dnd'
 import { HTML5Backend } from 'react-dnd-html5-backend'
 // import Example from './single-target'
 // import Example from './lifecycle'
-import Example from './multiple-targets'
+// import Example from './multiple-targets'
+// import Example from './drag-around-naive'
 
 function App() {
   return (

@@ -10,8 +10,6 @@ export const Container: React.FC = memo(function Container() {
       </div>
       <div>
         <Box name="Glass" />
-        <Box name="Banana" />
-        <Box name="Paper" />
       </div>
     </div>
   )
