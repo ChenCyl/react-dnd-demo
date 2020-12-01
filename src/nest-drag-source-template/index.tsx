@@ -2,14 +2,13 @@ import React from 'react'
 import { SourceBox } from './SourceBox'
 import { TargetBox } from './TargetBox'
 
-export enum Colors {
-  YELLOW = 'yellow',
-  BLUE = 'blue'
+export const Colors = {
+  YELLOW: 'yellow',
+  BLUE: 'blue',
 }
 
 export interface DragItem {
-  type: string,
-  color: Colors
+  type: string
 }
 
 const Container: React.FC = () => {
